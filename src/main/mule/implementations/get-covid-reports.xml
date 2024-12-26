@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get:\reports:uhub-sapi-config" doc:id="d98d3c20-4a7a-42a7-9dde-def5de5eee72" >
+		<set-variable value='#[attributes.headers."x-correlation-id" default ""]' doc:name="Set Variable" doc:id="587481d9-a7a1-4df4-8966-3418fe846610" variableName="CorrelationID"/>
+		<logger level="INFO" doc:name="Logger" doc:id="87c38c01-b40e-4991-9ebb-8692d2655664" message='transactionID: #[vars.transactionID], correlationID: #[vars.correlationID], message: "Started get covid reports flow"' />
+		<ee:transform doc:name="Transform Message" doc:id="c9122900-aa27-4465-9247-bcfa065d6a81" >
+			<ee:message >
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="dynamicQuery" ><![CDATA[if(!isEmpty(attributes.queryParams.state)) 
+("select count(*) as count, case_type, state from cvd_case_master where state = '" ++ upper(attributes.queryParams.state) ++ "' group by case_type, state")
+else
+(
+	"select count(*) as count, case_type, state from cvd_case_master group by case_type, state"
+)]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="51d43219-5cd0-4b2e-a5f0-45b431368adf" name="get-covid-reports-subflow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2e3eba47-6083-43f9-9ab4-4265662d46f0" message="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="2b1e26fb-5ff5-410a-95f1-18b8555a3eaa" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+fun vaccinate(state) = (payload filter (($.state == state as String ) and $.case_type == "vaccinated") map {
+    "count":$.count
+})[0]
+---
+((payload groupBy ($.state) mapObject {
+    "caseReports":{
+        "State": $$,
+        "Reports": {
+            "total": ($.count reduce $+$$) - (vaccinate($$).count as Number  default 0),
+            ($ orderBy ($.case_type) map {
+                ($.case_type): $.count
+            })
+        }
+
+    }
+}).*caseReports)  default []
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="33f43622-1e94-4c74-af42-6ee47afaae63" message='transactionID: #[vars.transactionID], correlationID: #[vars.correlationID], message: Completed get covid reports case flow, payload: #[payload]"'/>
+	</flow>
+</mule>

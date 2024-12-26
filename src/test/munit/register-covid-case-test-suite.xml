@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd">
+	<munit:config name="register-covid-case-test-suite.xml" />
+		<http:request-config name="HTTP_Request_configuration3" doc:name="HTTP Request configuration" doc:id="97b6224d-c15a-4caa-ad80-be19b498f6f0" basePath="/covid" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
+	<munit:test name="register-covid-case-success-response" doc:id="7474c2dc-317b-447b-a723-43336d10f1f0" description="Test">
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when" doc:id="96f5430d-40da-4585-9bdd-ddf2f9da78e2" processor="db:insert">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute whereValue="29fffc51-9c84-4811-9304-da159de2fa3a" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return>
+					<munit-tools:payload value="#[output application/java --- readUrl('classpath://register_covid_case/response_payload.dwl')]" mediaType="application/java" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="a117e8ac-52f6-4a04-af02-0c1d494b7597" >
+				<munit:payload value="#[readUrl('classpath://register_covid_case/input_request_payload.dwl')]" />
+
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to post:\cases:application\json:uhub-sapi-config" doc:id="ea9f2c1f-a48d-42d1-8f81-121967c02b36" name="post:\cases:application\json:uhub-sapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="0ec25ac8-da82-4525-94e9-257c04c22b30" expression="#[vars.httpStatus]" is="#[MunitTools::equalTo(201)]"/>
+			<munit-tools:assert doc:name="Assert expression" doc:id="ecda7b4a-2693-450d-8430-7603ee541de5" >
+				<munit-tools:that ><![CDATA[#[import register_covid_case::assert_expression_success_payload
+---
+assert_expression_success_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="register-covid-case-DB-connectivity-503" doc:id="dc8011a0-ca7a-42c0-911d-11ff7e286fd5" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="d9446cc5-5586-46b5-b802-8e6c49304815" processor="db:insert">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="29fffc51-9c84-4811-9304-da159de2fa3a" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:error typeId="DB:CONNECTIVITY" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="51f9043e-3aae-438d-9336-8541b342dd27">
+				<munit:payload value="#[readUrl('classpath://register_covid_case/input_request_payload.dwl')]" />
+			</munit:set-event>
+			<try doc:name="Try" doc:id="a3141e81-d11c-43e5-8e35-5a108450ffcd" >
+				<try doc:name="Try" doc:id="89b01565-217a-4baa-9390-166a6d06f740">
+				<flow-ref doc:name="Flow Reference" doc:id="d6c4a642-3172-4e40-b33c-29757287af3b" name="post:\cases:application\json:uhub-sapi-config" />
+				<error-handler ref="global-error-handler" />
+			</try>
+				<error-handler >
+					<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="85063279-81a6-487b-8461-b1838569396b" type="ANY">
+						<logger level="INFO" doc:name="Logger" doc:id="69e877c2-8aba-4b19-aff0-41c3fdd0ded1" message='#["The flow is completed"]' />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		
+</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="56a89e87-56a4-4cc0-8953-d2aec8bd0d0d" actual="#[vars.httpStatus]" expected="#[503]"/>
+			<munit-tools:assert doc:name="Assert expression" doc:id="74aaec05-5d81-4eb5-b739-8ac6710159ea" >
+				<munit-tools:that ><![CDATA[#[import register_covid_case::error_response_503
+---
+error_response_503::main({payload:payload, attributes:attributes, vars:vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="register-covid-case-400-bad-request_1" doc:id="335796d8-4dfb-4bda-862d-0972f6f37860">
+		<munit:enable-flow-sources >
+			<munit:enable-flow-source value="uhub-sapi-main" />
+			<munit:enable-flow-source value="post:\cases:application\json:uhub-sapi-config" />
+			<munit:enable-flow-source value="global-prepare-error-response-sub-flow11" />
+			<munit:enable-flow-source value="uhub-sapi-console" />
+		
+</munit:enable-flow-sources>
+		<munit:behavior>
+			<munit-tools:mock-when doc:name="Mock when" doc:id="8d5982cf-8eb9-442b-9947-24aa3d384ab4" processor="http:listener">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="uhub-sapi-httpListenerConfig" attributeName="config-ref" />
+					<munit-tools:with-attribute whereValue="/V1/*" attributeName="path" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:error typeId="APIKIT:BAD_REQUEST " />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Event1" doc:id="6122ca88-cc87-4c8c-b677-e857977e54d8" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://register_covid_case/input_payload_400.dwl')]" mediaType="application/json" />
+			
+</munit:set-event>
+		
+</munit:behavior>
+		<munit:execution>
+<http:request method="POST" doc:name="Request" doc:id="2886a666-24fa-4c3d-bc81-b6cf810b8dcf" config-ref="HTTP_Request_configuration3" path="/V1/cases" responseTimeout="120000">
+
+			</http:request>
+			<logger level="INFO" doc:name="Logger" doc:id="6af31a00-4691-4831-929a-e4ddb6f7ee0e" message="#[payload]"/>
+		
+</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert expression" doc:id="26960bbd-2db4-40a2-a93a-ee579c2d0b9d" >
+				<munit-tools:that ><![CDATA[#[import register_covid_case::bad_request_400_response_payload
+---
+bad_request_400_response_payload::main({payload:payload, attributes:attributes, vars:vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		
+</munit:validation>
+	</munit:test>
+
+
+</mule>

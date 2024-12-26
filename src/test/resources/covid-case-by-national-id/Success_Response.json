@@ -1,0 +1,443 @@
+[
+  {
+    "caseID": 1,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 2,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 3,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 4,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 5,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 6,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 7,
+    "source": "Hospital2",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-20"
+  },
+  {
+    "caseID": 8,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-19",
+    "updateDate": "2024-11-19"
+  },
+  {
+    "caseID": 9,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-20",
+    "updateDate": "2024-11-20"
+  },
+  {
+    "caseID": 10,
+    "source": "Hospital10",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-20",
+    "updateDate": "2024-12-11"
+  },
+  {
+    "caseID": 21,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "NY",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-25",
+    "updateDate": "2024-11-25"
+  },
+  {
+    "caseID": 22,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-27",
+    "updateDate": "2024-11-27"
+  },
+  {
+    "caseID": 23,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-27",
+    "updateDate": "2024-11-27"
+  },
+  {
+    "caseID": 24,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-11-27",
+    "updateDate": "2024-11-27"
+  },
+  {
+    "caseID": 25,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-03",
+    "updateDate": "2024-12-03"
+  },
+  {
+    "caseID": 27,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-05",
+    "updateDate": "2024-12-05"
+  },
+  {
+    "caseID": 29,
+    "source": "Hospital6",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-09",
+    "updateDate": "2024-12-09"
+  },
+  {
+    "caseID": 30,
+    "source": "Hospital6",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-10",
+    "updateDate": "2024-12-10"
+  },
+  {
+    "caseID": 31,
+    "source": "Hospital1",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-10",
+    "updateDate": "2024-12-10"
+  },
+  {
+    "caseID": 32,
+    "source": "Hospital6",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-10",
+    "updateDate": "2024-12-10"
+  },
+  {
+    "caseID": 33,
+    "source": "Hospital6",
+    "caseType": "positive",
+    "firstName": "John",
+    "lastName": "Nixon",
+    "phone": "541-754-3010",
+    "email": "john@gmail.com",
+    "dateOfBirth": "1989-04-26",
+    "nationalID": "209-49-6193",
+    "nationalIDType": "SSN",
+    "address": {
+      "streetAddress": "1600 Pennsylvania Avenue NW",
+      "city": "Washington",
+      "state": "DC",
+      "postal": "20500",
+      "country": "USA"
+    },
+    "createDate": "2024-12-10",
+    "updateDate": "2024-12-10"
+  }
+]

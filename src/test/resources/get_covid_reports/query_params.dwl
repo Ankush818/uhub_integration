@@ -1,0 +1,6 @@
+{
+"queryParams": {
+    "state": "NY"
+  }
+}
+

@@ -1,0 +1,12 @@
+[
+  {
+    "COUNT": 20,
+    "CASE_TYPE": "positive",
+    "STATE": "DC"
+  },
+  {
+    "COUNT": 1,
+    "CASE_TYPE": "positive",
+    "STATE": "NY"
+  }
+]
